@@ -28,8 +28,7 @@ with tf.Session() as sess:
     for i in range(2000000):
         sess.run(train, feed_dict={input_data: x_values, output_data: y_values})
         if i % 100 == 0:
-            plt.plot(x_values, sess.run(model_operation, feed_dict={input_data: x_values}))
-    print(sess.run([slope, intercept]))
+            print(sess.run([slope, intercept]))
     print("Loss: " + str(sess.run(loss, feed_dict={input_data: x_values, output_data: y_values})))
     plt.plot(x_values, y_values, 'ro', 'Training Data')
     plt.plot(x_values, sess.run(model_operation, feed_dict={input_data: x_values}))
